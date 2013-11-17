@@ -132,7 +132,7 @@ class XEP_0206 extends XMPPXep {
 		_debug("recving for $this->rid");
 		do {
 			$ret = curl_multi_exec($this->mch, $running);
-			$changed = curl_multi_select($this->mch, 0.1);
+			$changed = 0;  // curl_multi_select($this->mch, 0.1);
 			
 			if($changed == 0 && $running == 0) {
 				$ch = @$this->chs[$this->rid];
